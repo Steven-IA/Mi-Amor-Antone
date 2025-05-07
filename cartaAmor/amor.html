@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Carta para ti 💖</title>
+</head>
+<body>
+  <script src="validacionContraseña.js"></script>
+    <audio id="bg-music" loop>
+        <source src="cancionAmor.mp3" type="audio/mpeg">
+      </audio>
+      
+      <!-- Corazones flotantes -->
+      <div class="hearts-floating" id="hearts"></div>
+      
+      <!-- Corazón -->
+      <div class="heart" onclick="showCard()">
+        <div class="heart-text">Abreme 💌</div>
+      </div>
+      
+      <!-- Carta con foto y mensaje -->
+      <div class="card" id="card">
+        <img src="amor.jpg">
+        <h2>Carta para mi amorr 💌</h2>
+        <p>Eh mi amor, no es que sea bueno escribiendo o redactando cartas de amor pero pues tu eres mi universo, mi estrella a la que giro los 365 días y no paro de ver lo resplandeciente y maravillosa que eres, cada día me enamoro mas y mas de todo lo que te compone, no solamente de tu físico sino también por tus hermosos sentimientos, tu forma de ser es tan hermosa que no encuentro algún defecto que puedas tener, ante mis ojos eres demasiado perfecta y siendo sincero apocas todas las maravillas existentes en todo la vida lactea, desde la estrella mas brillante de los universos hasta un gatito sonriendo, eres una obra de arte que no debe de envidiarle nada a nadie, eres demasiado perfecta así como eres y como no me encanta recordarte... TE AMO CON TODO MI SER ALMA y espero que no hayas pensado que no te iba a regalar algo, solo me demore un poco al abrir ideas en mi cabeza tonta 💖</p>
+        <button id="backBtn" onclick="goBack()" style="display: none;">Volver</button>
+      </div>
+
+      <script src="animaciones.js"></script>
+</body>
+</html>

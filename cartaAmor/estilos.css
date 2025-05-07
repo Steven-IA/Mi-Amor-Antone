@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    background-color: #ffe4ec;
+    font-family: 'Dancing Script', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .heart {
+    position: relative;
+    width: 20vw;
+    height: calc(20vw * 0.9); /* Mantiene proporción */
+    background: red;
+    transform: rotate(-45deg);
+    margin: 0 auto;
+    animation: heartReset 1s forwards;
+    cursor: pointer;
+  }
+  
+  .heart-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 95%;
+    left: 55%;
+    transform: translate(-50%, -50%) rotate(45deg); /* elimina la inclinación */
+    color: yellow;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+    pointer-events: none;
+    z-index: 10;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+    100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: calc(20vw * 0.9);
+    background: red;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -50%;
+    left: 0;
+  }
+
+  .heart::after {
+    top: 0;
+    left: 50%;
+  }
+
+  .card {
+    display: none;
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 30px pink;
+    animation: fadeIn 2s ease;
+  }
+
+  .card img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px #f0f;
+  }
+
+  #backBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: white;
+    background-color: #ff6699;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #f0f;
+    transition: background-color 0.3s ease;
+  }
+  
+  #backBtn:hover {
+    background-color: #e05588;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .hearts-floating {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hearts-floating span {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: float 5s infinite ease-in;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  audio {
+    display: none;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1) rotate(-45deg);
+    }
+    25% {
+      transform: scale(1.05) rotate(-45deg);
+    }
+    50% {
+      transform: scale(0.95) rotate(-45deg);
+    }
+    75% {
+      transform: scale(1.05) rotate(-45deg);
+    }
+  }
+  
+  .heart {
+    animation: heartbeat 1s infinite;
+  }
+
+  @keyframes cardFloat {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .card {
+    animation: fadeIn 2s ease, cardFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeInH {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .heart-fade-in {
+    animation: fadeIn 1s ease forwards, heartbeat 1s infinite;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.7); }
+  }
+  
+  .card-fade-out {
+    animation: fadeOut 0.8s ease forwards;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+  
+  @media (max-width: 600px) {
+    body{
+      font-family: 'Dancing Script', cursive;
+      font-weight: bold;
+    }
+
+    .heart {
+      width: 180px;
+      height: 180px;
+    }
+
+    .heart-text {
+      top: 85%;
+      left: 50%;
+    }
+
+    .heart::before,
+    .heart::after {
+      width: 180px;
+      height: 180px;
+    }
+
+    .heart::before {
+      top: -90px;
+    }
+
+    .heart::after {
+      left: 90px;
+    }
+  }
